@@ -20,6 +20,10 @@ describe('toMomentObject', () => {
     expect(toMomentObject()).to.equal(null);
   });
 
+  it('output has time of 12PM', () => {
+    expect(toMomentObject('1991-07-13').hour()).to.equal(12);
+  });
+
   it('parses custom format', () => {
     const date = toMomentObject('1991---13/07', 'YYYY---DD/MM');
 

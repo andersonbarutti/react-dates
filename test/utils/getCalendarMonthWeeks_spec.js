@@ -27,6 +27,16 @@ describe('getCalendarMonthWeeks', () => {
     expect(isIncluded).to.equal(true);
   });
 
+  it('all days have a time of 12PM', () => {
+    weeks.forEach((week) => {
+      week.forEach((day) => {
+        if (day) {
+          expect(day.hours()).to.equal(12);
+        }
+      });
+    });
+  });
+
   describe('enableOutsideDays arg is false', () => {
     it('first non-null element is first of the month', () => {
       const firstOfMonth = today.clone().startOf('month');
